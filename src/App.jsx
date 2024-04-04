@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Homepage from "./components/Homepage";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
+import Creditcard from "./components/Creditcard";
 
 function App() {
   return <div>
@@ -18,7 +19,7 @@ function App() {
       <Route path="/signup" element={<Signup/>}/>
       <Route path="/details" element={<Details/>}/>
       <Route path="/cart" element={<Cart/>}/>
-
+      <Route path="/creditcard" element={<Creditcard/>}/>
     </Routes>
  
 
