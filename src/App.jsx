@@ -8,6 +8,7 @@ import Homepage from "./components/Homepage";
 import Details from "./components/Details";
 import Cart from "./components/Cart";
 import Creditcard from "./components/Creditcard";
+import Buy from "./components/Buy";
 
 function App() {
   return <div>
@@ -20,6 +21,8 @@ function App() {
       <Route path="/details" element={<Details/>}/>
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/creditcard" element={<Creditcard/>}/>
+      <Route path="/buy" element={<Buy/>}/>
+
     </Routes>
  
 
