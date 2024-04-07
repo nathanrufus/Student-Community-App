@@ -37,7 +37,7 @@ function Footer() {
             </div>
         </div>
         <div class="flex py-5 m-auto text-gray-800 text-sm flex-col items-center border-t max-w-screen-xl">
-            <div class="my-5">© Copyright 2023. All Rights Reserved.</div>
+            <div class="my-5">© Copyright 2024. All Rights Reserved.</div>
         </div>
     </div>
 }

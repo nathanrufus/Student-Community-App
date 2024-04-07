@@ -22,6 +22,7 @@ function App() {
       <Route path="/cart" element={<Cart/>}/>
       <Route path="/creditcard" element={<Creditcard/>}/>
       <Route path="/buy" element={<Buy/>}/>
+      <Route path="/" element={ <Homepage/>}/>
 
     </Routes>
  

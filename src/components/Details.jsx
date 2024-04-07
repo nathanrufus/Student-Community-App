@@ -4,6 +4,8 @@ import { FcElectronics } from "react-icons/fc";
 
 
 function Details() {
+    
+
     return <div className="mt-20 max-w-screen-2xl md:px-14 p-4  ">
         <div className=" md:flex flex-row space-x-20">
             <div class=" max-w-lg rounded overflow-hidden shadow-lg mt-6  ">
@@ -19,7 +21,7 @@ function Details() {
                     <h1 className=" items-center justify-center flex">Category:<span class="inline-block  rounded-full px-3 py-1 text-xl font-semibold text-gray-700 mr-2 mb-2"><FcElectronics /></span></h1>
                 </div>
                 <div className=" px-6">
-                    <button className=" rounded-md bg-blue-800  text-white px-3 py-1 mb-3 hover:bg-blue-400 transition-all duration-300">Buy Now</button>
+                    <button  className=" rounded-md bg-blue-800  text-white px-3 py-1 mb-3 hover:bg-blue-400 transition-all duration-300">Buy Now</button>
 
                 </div>
             </div>
