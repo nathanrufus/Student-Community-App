@@ -11,8 +11,19 @@ def create_app():
 
     db.init_app(app)
     migrate.init_app(app, db)
-
-    from .routes import bp
-    app.register_blueprint(bp)
     
+    from .controllers.user import user_bp
+    from .controllers.cart import cart_bp
+    from .controllers.creditcard_controller import creditcard_bp
+    from .controllers.items import items_bp
+    from .controllers.payment import payment_bp
+
+    app.register_blueprint(user_bp)
+    app.register_blueprint(creditcard_bp)
+    app.register_blueprint(cart_bp)
+    app.register_blueprint(items_bp)
+    app.register_blueprint(payment_bp)
+
+
+
     return app
