@@ -1,19 +1,10 @@
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+from .app import create_app,db
 
-app=Flask(__name__)
-db=SQLAlchemy()
+app=create_app()
 
-app.config["SQLALCHEMY_DATABASE_URI"]="sqlite:///student_community.db"
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-db.init_app(app)
-migrate = Migrate(app, db)
-
-@app.route("/",methods=['GET'])
-def home():
-    return "welcome home"
+# @app.route("/",methods=['GET'])
+# def home():
+#     return "welcome home"
 
 
 class Users(db.Model):
