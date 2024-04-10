@@ -6,7 +6,7 @@ from .. import db
 payment_bp=Blueprint("payment_blueprint",__name__)
 api=Api(payment_bp)
 
-payment_parser=reqparse.Requestarser()
+payment_parser=reqparse.RequestParser()
 payment_parser.add_argument('amount', type=str, required=True, help='amount is required')
 payment_parser.add_argument('number', type=str, required=True, help='number is required')
 

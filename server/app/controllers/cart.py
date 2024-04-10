@@ -6,7 +6,7 @@ from .. import db
 cart_bp=Blueprint("cart_blueprint",__name__)
 api=Api(cart_bp)
 
-cart_parser=reqparse.Requestarser()
+cart_parser=reqparse.RequestParser()
 cart_parser.add_argument('name', type=str, required=True, help='name is required')
 cart_parser.add_argument('item_photo', type=str, required=True, help='item_photo is required')
 cart_parser.add_argument('seller_photo', type=str, required=True, help='seller_photo is required')
