@@ -1,4 +1,5 @@
 from . import db
+import base64
 
 
 class Users(db.Model):
@@ -23,7 +24,7 @@ class Users(db.Model):
         "name":self.name,
         "email":self.email,
         "password":self.password,
-        "photo":self.photo,
+        "photo":base64.b64encode(self.photo).decode('utf-8') if self.photo else None,
         "number":self.number
         }
 
@@ -44,8 +45,8 @@ class Items(db.Model):
         "seller_name":self.seller_name,
         "description":self.description,
         "category":self.category,
-        "item_photo":self.item_photo,
-        "seller_photo":self.seller_photo,
+        "item_photo":base64.b64encode(self.item_photo).decode('utf-8') if self.item_photo else None,
+        "seller_photo":base64.b64encode(self.seller_photo).decode('utf-8') if self.seller_photo else None,
         "price":self.price
 
         }
@@ -98,8 +99,8 @@ class Cart(db.Model):
         return {
         "id":self.id,
         "name":self.name,
-        "item_photo":self.item_photo,
-        "seller_photo":self.seller_photo,
+        "item_photo":base64.b64encode(self.item_photo).decode('utf-8') if self.item_photo else None,
+        "seller_photo":base64.b64encode(self.seller_photo).decode('utf-8') if self.seller_photo else None,
         "total_amount":self.total_amount,
         "price":self.price
         }
