@@ -8,7 +8,6 @@ class Users(db.Model):
     name=db.Column(db.String(100))
     email=db.Column(db.String(100))
     password=db.Column(db.String(100))
-    photo=db.Column(db.LargeBinary)
     number=db.Column(db.String(100))
     items= db.relationship('Items', backref='user', lazy=False)
     creditcards= db.relationship('Creditcard', backref='user', uselist=False, lazy=False)
@@ -24,7 +23,6 @@ class Users(db.Model):
         "name":self.name,
         "email":self.email,
         "password":self.password,
-        "photo":base64.b64encode(self.photo).decode('utf-8') if self.photo else None,
         "number":self.number
         }
 
@@ -47,8 +45,7 @@ class Items(db.Model):
         "category":self.category,
         "item_photo":base64.b64encode(self.item_photo).decode('utf-8') if self.item_photo else None,
         "seller_photo":base64.b64encode(self.seller_photo).decode('utf-8') if self.seller_photo else None,
-        "price":self.price
-
+        "price": str(self.price)  # Cast price to string
         }
 
 class Creditcard(db.Model):
