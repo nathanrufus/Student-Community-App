@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Details from "./Details";
+import Explore from "./Explore";
 
 
 function Myitems() {
@@ -28,6 +29,7 @@ function Myitems() {
     }, []);
     return <div>
         <Details items={items} />
+        <Explore items={items}/>
     </div>;
 }
 

@@ -1,10 +1,12 @@
 from . import db
 import base64
-
+import uuid
+def generate_uuid():
+    return str(uuid.uuid4())
 
 class Users(db.Model):
     __tablename__="users"
-    user_id=db.Column(db.Integer(),primary_key=True)
+    user_id=db.Column(db.String,primary_key=True,default=generate_uuid)
     name=db.Column(db.String(100))
     email=db.Column(db.String(100))
     password=db.Column(db.String(100))
@@ -28,29 +30,26 @@ class Users(db.Model):
 
 class Items(db.Model):
     __tablename__="items"
-    id=db.Column(db.Integer(),primary_key=True)
-    userid = db.Column(db.Integer, db.ForeignKey('users.user_id'))
+    id=db.Column(db.String,primary_key=True,default=generate_uuid)
+    userid = db.Column(db.Integer, db.ForeignKey('users.user_id', name="items_user_fk"))
     seller_name=db.Column(db.String(100))
     description=db.Column(db.String(700))
     category=db.Column(db.String(100))
-    item_photo=db.Column(db.LargeBinary)
-    seller_photo=db.Column(db.LargeBinary)
+  
     price=db.Column(db.String(100))
 
     def serialize(self):
         return {
-        "id":self.id,
+        "id":str(self.id),
         "seller_name":self.seller_name,
         "description":self.description,
         "category":self.category,
-        "item_photo":base64.b64encode(self.item_photo).decode('utf-8') if self.item_photo else None,
-        "seller_photo":base64.b64encode(self.seller_photo).decode('utf-8') if self.seller_photo else None,
         "price": str(self.price)  # Cast price to string
         }
 
 class Creditcard(db.Model):
     __tablename__="creditcard"
-    id=db.Column(db.Integer(),primary_key=True)
+    id=db.Column(db.String,primary_key=True,default=generate_uuid)
     userid = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     name=db.Column(db.String(100))
     email=db.Column(db.String(100))
@@ -68,7 +67,7 @@ class Creditcard(db.Model):
     
 class Payment(db.Model):
     __tablename__="payment"
-    id=db.Column(db.Integer(),primary_key=True)  
+    id=db.Column(db.String,primary_key=True,default=generate_uuid)  
     userid = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     amount=db.Column(db.String(100))
     number=db.Column(db.String(100))
@@ -83,7 +82,7 @@ class Payment(db.Model):
 
 class Cart(db.Model):
     __tablename__="cart"
-    id=db.Column(db.Integer(),primary_key=True)
+    id=db.Column(db.String,primary_key=True,default=generate_uuid)
     userid = db.Column(db.Integer, db.ForeignKey('users.user_id'))
     cart_id = db.Column(db.Integer, db.ForeignKey('items.id'))
     name=db.Column(db.String(100))

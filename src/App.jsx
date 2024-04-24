@@ -10,6 +10,7 @@ import Cart from "./components/Cart";
 import Creditcard from "./components/Creditcard";
 import Buy from "./components/Buy";
 import Create from "./components/Create";
+import Explore from "./components/Explore";
 
 function App() {
   return <div>
@@ -25,6 +26,7 @@ function App() {
       <Route path="/buy" element={<Buy />} />
       <Route path="/" element={<Homepage />} />
       <Route path="/create" element={<Create />} />
+      <Route path="/explore" element={<Explore/>} />
     </Routes>
 
 

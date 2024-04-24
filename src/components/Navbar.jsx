@@ -24,11 +24,11 @@ function Navbar() {
                             <span class="flex-1 ms-3 whitespace-nowrap">Home</span>
                         </a>
                     </Link>
-                    <Link>
-                        <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
+                    <Link to='explore'>
+                        <div class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
                             <span class="flex-1 ms-3 whitespace-nowrap">Explore</span>
-                        </a>
+                        </div>
                     </Link>
                     <Link>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
@@ -36,15 +36,20 @@ function Navbar() {
                             <span class="flex-1 ms-3 whitespace-nowrap">Profile</span>
                         </a>
                     </Link>
-                    <Link>
+                    {/* <Link>
                         <a href="#" class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group">
 
                             <span class="flex-1 ms-3 whitespace-nowrap">Posts</span>
                         </a>
-                    </Link>
+                    </Link> */}
                     <Link to='signin'>
                         <div class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer">
                             <span class="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+                        </div>
+                    </Link>
+                    <Link to='create'>
+                        <div class="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group cursor-pointer">
+                            <span class="flex-1 ms-3 whitespace-nowrap">Create</span>
                         </div>
                     </Link>
                     <div  >

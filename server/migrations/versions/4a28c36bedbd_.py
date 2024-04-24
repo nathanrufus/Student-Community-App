@@ -1,8 +1,8 @@
 """empty message
 
-Revision ID: 40b0226e211b
-Revises: ad7aa5e471f3
-Create Date: 2024-04-09 15:28:02.516963
+Revision ID: 4a28c36bedbd
+Revises: 
+Create Date: 2024-04-18 11:49:42.771155
 
 """
 from alembic import op
@@ -10,8 +10,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision = '40b0226e211b'
-down_revision = 'ad7aa5e471f3'
+revision = '4a28c36bedbd'
+down_revision = None
 branch_labels = None
 depends_on = None
 
@@ -23,7 +23,6 @@ def upgrade():
     sa.Column('name', sa.String(length=100), nullable=True),
     sa.Column('email', sa.String(length=100), nullable=True),
     sa.Column('password', sa.String(length=100), nullable=True),
-    sa.Column('photo', sa.LargeBinary(), nullable=True),
     sa.Column('number', sa.String(length=100), nullable=True),
     sa.PrimaryKeyConstraint('user_id')
     )
@@ -43,8 +42,6 @@ def upgrade():
     sa.Column('seller_name', sa.String(length=100), nullable=True),
     sa.Column('description', sa.String(length=700), nullable=True),
     sa.Column('category', sa.String(length=100), nullable=True),
-    sa.Column('item_photo', sa.LargeBinary(), nullable=True),
-    sa.Column('seller_photo', sa.LargeBinary(), nullable=True),
     sa.Column('price', sa.String(length=100), nullable=True),
     sa.ForeignKeyConstraint(['userid'], ['users.user_id'], ),
     sa.PrimaryKeyConstraint('id')

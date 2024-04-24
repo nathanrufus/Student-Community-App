@@ -10,8 +10,8 @@ api = Api(items_bp)
 items_parser = reqparse.RequestParser()
 items_parser.add_argument('seller_name', type=str, required=True, help='name is required')
 items_parser.add_argument('description', type=str, required=True, help='description is required')
-items_parser.add_argument('item_photo', type=str, required=False, help='item_photo is required')
-items_parser.add_argument('seller_photo', type=str, required=False, help='seller_photo is required')
+# items_parser.add_argument('item_photo', type=str, required=False, help='item_photo is required')
+# items_parser.add_argument('seller_photo', type=str, required=False, help='seller_photo is required')
 items_parser.add_argument('category', type=str, required=False, help='category is required')
 items_parser.add_argument('price', type=str, required=True, help='price is required')
 
@@ -24,7 +24,7 @@ class ListItems(Resource):
     def post(self):
         args = items_parser.parse_args()
         current_user_id = get_jwt_identity()
-        item = Items(id=current_user_id, **args)
+        item = Items(userid=current_user_id, **args)
         db.session.add(item)
         db.session.commit()
         return jsonify(item.serialize()), 201
@@ -33,14 +33,14 @@ class ItemsResource(Resource):
     @jwt_required()
     def get(self):
         current_user_id = get_jwt_identity()
-        items = Items.query.filter_by(id=current_user_id).all()
+        items = Items.query.filter_by(userid=current_user_id).all()
         return jsonify([item.serialize() for item in items])
 
     @jwt_required()
     def put(self):
         args = items_parser.parse_args()
         current_user_id = get_jwt_identity()
-        item = Items.query.filter_by(id=current_user_id).first()
+        item = Items.query.filter_by(userid=current_user_id).first()
         if item:
             for key, value in args.items():
                 setattr(item, key, value)
@@ -51,7 +51,7 @@ class ItemsResource(Resource):
     @jwt_required()
     def delete(self):
         current_user_id = get_jwt_identity()
-        item = Items.query.filter_by(id=current_user_id).first()
+        item = Items.query.filter_by(userid=current_user_id).first()
         if item:
             db.session.delete(item)
             db.session.commit()
