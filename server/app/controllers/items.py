@@ -31,9 +31,9 @@ class ListItems(Resource):
 
 class ItemsResource(Resource):
     @jwt_required()
-    def get(self):
-        current_user_id = get_jwt_identity()
-        items = Items.query.filter_by(userid=current_user_id).all()
+    def get(self,id):
+        # current_user_id = get_jwt_identity()
+        items = Items.query.filter_by(id=id).all()
         return jsonify([item.serialize() for item in items])
 
     @jwt_required()
@@ -59,4 +59,4 @@ class ItemsResource(Resource):
         return jsonify({"message": "Item not found"}), 404
 
 api.add_resource(ListItems, "/items")
-api.add_resource(ItemsResource, "/singleitem")
+api.add_resource(ItemsResource, "/singleitem/<int:id>")
