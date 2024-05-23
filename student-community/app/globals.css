@@ -1,4 +1,22 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+body {
+  @apply p-4 w-full max-w-screen-xl mx-auto;
+}
+
+/* Adding custom font to Tailwind configuration */
+@layer base {
+  @font-face {
+    font-family: 'Roboto';
+    src: url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+  }
+
+  html {
+    font-family: 'Roboto', sans-serif;
+  }
+}
